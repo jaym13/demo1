@@ -1,0 +1,20 @@
+code for modifying the content inside the file of a git repo
+
+pipeline {
+    agent any
+    stages {
+        stage("clone") {
+            steps {
+                git 'https://github.com/Rahul3275/Pipleline.git'
+            }
+           }
+           stage ('modifying') {
+               steps {
+                   bat 'echo "Changing text" >> Pipeline_code1.txt'
+                   echo 'Changed Pipeline_code1.txt'
+               }
+           }
+           stage('changes') {
+               steps {
+                   bat '''
+                     git config user.n
